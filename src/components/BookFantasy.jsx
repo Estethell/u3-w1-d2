@@ -10,8 +10,8 @@ const BookFantasy = () => {
       <Row>
         {books.map((libri) => {
           return (
-            <Col lg={2}>
-              <Card className="m-3" style={{ width: "16em" }} key={libri.asin}>
+            <Col lg={2} key={libri.asin}>
+              <Card className="m-3" style={{ width: "16em" }}>
                 <Card.Img className="imgCard" variant="top" src={libri.img} />
                 <Card.Body>
                   <Card.Title className="textCard">{libri.title}</Card.Title>
