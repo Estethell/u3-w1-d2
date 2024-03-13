@@ -13,7 +13,7 @@ class SingleBook extends Component {
           className="imgCard"
           variant="top"
           src={props.myBook.img}
-          selected={(e) => {
+          onChange={(e) => {
             this.setState({
               selected: "true",
             });
