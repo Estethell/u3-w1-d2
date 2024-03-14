@@ -47,7 +47,7 @@ class AddComment extends Component {
       <>
         <h3 className="text-center">Inserisci Commento:</h3>
         <Form onSubmit={this.putFetch}>
-          <Form.Group className="m-2">
+          <Form.Group className="m-2 text-center">
             <Form.Label>Inserisci Commento</Form.Label>
             <Form.Control
               as="textarea"
@@ -65,8 +65,8 @@ class AddComment extends Component {
             />
           </Form.Group>
 
-          <Form.Group className="m-2">
-            <Form.Label></Form.Label>
+          <Form.Group className="m-2 text-center">
+            <Form.Label>Vota!</Form.Label>
             <Form.Select
               aria-label="Default select example"
               onChange={(e) => {
