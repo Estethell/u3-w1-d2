@@ -3,33 +3,34 @@ import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 const url = "https://striveschool-api.herokuapp.com/api/comments/";
 
-const initialRecensioni = {
-  comment: "",
-  rate: "",
-  elementId: "",
-};
-
 class AddComment extends Component {
+  initialRecensioni = {
+    comment: "",
+    rate: "",
+    elementId: this.props.asin,
+  };
+
   state = {
-    recensione: initialRecensioni,
+    recensione: this.initialRecensioni,
   };
 
   putFetch = (e) => {
     e.preventDefault();
 
-    fetch(url + this.props.asin, {
+    fetch(url, {
       method: "POST",
       body: JSON.stringify(this.state.recensione),
       headers: {
         Authorization:
           "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWYyZmY5MzcxYWZhZjAwMTkxNTY2YzAiLCJpYXQiOjE3MTA0MjM5NTYsImV4cCI6MTcxMTYzMzU1Nn0.Oy6KsHH1fCeVfhP3zHhLgZ0lfiP-Q2shaKHoGX_VDcU",
+        "content-type": "application/json",
       },
     })
       .then((response) => {
         if (response.ok) {
           window.alert("Recensione inserita con successo");
           this.setState({
-            recensione: initialRecensioni,
+            recensione: this.initialRecensioni,
           });
         } else {
           window.alert("Errore");
